@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Navbar with Search and Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script><script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+  </head>
+  <body>
+
+    <nav class="bg-slate-900 p-2">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-white text-3xl font-semibold font-['Holen_Vintage']">
+          <a href="#">Allurea</a>
+        </div>
+    
+        <!-- Desktop Navigation -->
+        <div class="flex pr-64 mr-32 space-x-6 gap-10 text-white hidden lg:flex">
+          <a href="../../index.html" class="hover:text-yellow-200">Home</a>
+          <a href="../../pages/page1/index.html" class="hover:text-yellow-200">About</a>
+          <a href="../../pages/page2/index.html" class="hover:text-yellow-200">Products</a>
+          <a href="../page3/index.html" class="hover:text-yellow-200">Contact</a>
+        </div>
+    
+        <!-- Hamburger Icon for mobile -->
+        <div class="lg:hidden flex items-center">
+          <button id="hamburger-icon" class="text-white text-3xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-0 left-0 w-full h-screen bg-slate-900 text-white flex flex-col items-center justify-center space-y-4 hidden z-50">
+          <a href="../../index.html" class="hover:text-yellow-200">Home</a>
+          <a href="../../pages/page1/index.html" class="hover:text-yellow-200">About</a>
+          <a href="../../pages/page2/index.html" class="hover:text-yellow-200">Products</a>
+          <a href="../../pages/page3/index.html" class="hover:text-yellow-200">Contact</a>
+        </div>
+      </div>
+    </nav>
+          <!-- Product Detail Section -->
+          <div class="p-6 max-w-4xl mx-auto relative">
+               <div class="bg-white rounded-lg shadow-md p-6 flex">
+                    <div class="w-1/2 pr-4">
+                         <img
+                              src="../../assets/img/Red Velvet.png"
+                              alt="Red Velvet"
+                              class="w-full object-cover rounded-lg"
+                         />
+                    </div>
+                    <div class="w-1/2 pl-4">
+                         <h2 class="text-3xl font-bold text-gray-900">
+                              Red Velvet
+                         </h2>
+                         <p class="text-gray-600 mt-2">
+                            A rich, indulgent scent blending velvety red berries with sweet vanilla and a touch of warm, spicy cinnamon. Perfect for a bold, yet comforting experience.
+                         </p>
+                         <h3 class="text-xl font-semibold text-gray-800 mt-4">
+                              Price: P1400
+                         </h3>
+
+                         <!-- Add to Cart & Checkout Buttons -->
+                         <button
+                              class="bg-yellow-500 text-white py-2 px-4 mt-4 rounded-lg hover:bg-yellow-600 transition-all"
+                         >
+                              Add to Cart
+                         </button>
+                         <button
+                              class="bg-gray-900 text-white py-2 px-4 mt-4 rounded-lg hover:bg-gray-700 transition-all"
+                         >
+                              Proceed to Checkout
+                         </button>
+                    </div>
+               </div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="bg-gray-900 text-gray-300 py-6 px-5 font-sans tracking-wide">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+              <p class="text-[15px] leading-loose">© Allurea.com All rights reserved.</p>
+      
+              <ul class="flex space-x-6 gap-y-2 max-lg:justify-center flex-wrap">
+                <li><a href="../../pages/page 12/index.html" class="text-[15px] hover:text-white">Privacy Policy</a></li>
+                <li><a href="../../pages/page 13/index.html" class="text-[15px] hover:text-white">Terms and Condtion</a></li>
+              </ul>
+            </div>
+          </footer>
+          <script>
+            document.addEventListener('alpine:init', () => {
+                Alpine.data('slider', () => ({
+                    currentIndex: 1,
+                    images: [
+                        './assets/img/Poster home.png',
+                        './assets/img/Poster home 2.png',
+                        './assets/img/Poster gome 3.png',
+                        './assets/img/girl-1026246_1280.jpg',
+                        './assets/img/reichstag-dome-1571046_1280.jpg'
+                    ],
+                    back() {
+                        if (this.currentIndex > 1) {
+                            this.currentIndex = this.currentIndex - 1;
+                        }
+                    },
+                    next() {
+                        if (this.currentIndex < this.images.length) {
+                            this.currentIndex = this.currentIndex + 1;
+                        } else if (this.currentIndex <= this.images.length){
+                            this.currentIndex = this.images.length - this.currentIndex + 1
+                        }
+                    },
+                }))
+            })
+        </script>
+          <script>
+            // Dropdown menu toggle for Account
+            const accountButton = document.querySelector("#account-button");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+      
+            accountButton.addEventListener("click", () => {
+              dropdownMenu.classList.toggle("hidden");
+            });
+      
+            // Shopping Cart button (for future use if needed)
+            const cartButton = document.querySelector("#cart-button");
+            // cartButton.addEventListener("click", () => {
+            //   // Handle shopping cart actions here
+            // });
+          </script>
+        </body>
+      </html>

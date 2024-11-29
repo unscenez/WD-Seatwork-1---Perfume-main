@@ -123,4 +123,4 @@ WD-ProjectName
 | Readymade UI | Source of codes mostly | readymadeui.com |
 | TailWindFlex | Source of codes to enchance | tailwindflex.com |
 | Merakiui | Source of codes and different components | merakiui.com |
-| Art of Scent | inspiration for the website | https://artofscent.com/ |
+| Art of Scent | inspiration for the website | https://artofscent.com |
